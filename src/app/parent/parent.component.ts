@@ -4,17 +4,17 @@ import { Component } from '@angular/core';
   selector: 'app-parent',
   standalone: false,
   templateUrl: './parent.component.html',
-  styleUrl: './parent.component.css'
+  styleUrls: ['./parent.component.css'] // Javítva: styleUrl -> styleUrls
 })
 export class ParentComponent {
-number1: number = 0;
-number2: number = 0;
-operation: string '+';
-result: number | null = null
+  number1: number = 0;
+  number2: number = 0;
+  operation: string = '+'; // Javítva: hiányzó '=' jel
+  result: number | null = null;
 
-calculate(){}
+  calculate() {}
 
-displayResult(calculatedResult: number){
-  this.result = calculatedResult;
-}
+  displayResult(calculatedResult: number) {
+    this.result = calculatedResult;
+  }
 }
