@@ -1,7 +1,13 @@
 <nav class="navbar">
     <div class="navbar-left">
         <!-- Ide jönnek a gombok a navigációhoz -->
+    <button (click)="navigateToParent()">Parent</button>
+    <button (click)="navigateToProducts()">Products</button>
+    
     </div>
     <div class="navbar-right">
     </div>
   </nav>
+
+  <router-outlet></router-outlet>
+  <app-navigation></app-navigation>

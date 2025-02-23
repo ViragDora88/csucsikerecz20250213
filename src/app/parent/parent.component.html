@@ -1,1 +1,34 @@
 <p>parent works!</p>
+
+<div>
+    <h2>Számológép</h2>
+    <label>
+        <input id = 'Elsoszam' type="number" [(ngModel)]= "number1">
+    </label>
+    <br>
+    <br>
+    <label>
+        <input id = 'Masodikszam'type="number" [(ngModel)] = 'number2'>
+    </label>
+
+    <label>Művelet:
+        <select [(ngModel)]="operation">
+            <option value="+">Összeadás</option>
+            <option value="-">Kivonás</option>
+            <option value="*">Szorzás</option>
+            <option value="/">Osztás</option>
+          </select>
+    </label>
+
+    <button (click)="calculate()">Számol</button>
+
+    <app-child
+    [num1] = "number1"
+    [num2] = "number2"
+    [operation] = "operation"
+    [resultCalculate] = "displayResult($event)">
+    </app-child>
+
+    <h3 *ngIf="result !== null">Eredmény: {{ result }}</h3>
+</div>
+
