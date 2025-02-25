@@ -3,16 +3,18 @@
 <div>
     <h2>Számológép</h2>
     <label>
-        <input id = 'Elsoszam' type="number" [(ngModel)]= "number1">
+        Első szám:
+        <input id = "a" [(ngModel)]="a" type="number" [(ngModel)]= "a">
     </label>
     <br>
     <br>
     <label>
-        <input id = 'Masodikszam'type="number" [(ngModel)] = 'number2'>
+        Második szám:
+        <input id = "b" [(ngModel)]="b" type="number" [(ngModel)] = 'b'>
     </label>
 
     <label>Művelet:
-        <select [(ngModel)]="operation">
+        <select id="operation"[(ngModel)]="operation">
             <option value="+">Összeadás</option>
             <option value="-">Kivonás</option>
             <option value="*">Szorzás</option>
@@ -22,13 +24,7 @@
 
     <button (click)="calculate()">Számol</button>
 
-    <app-child
-    [num1] = "number1"
-    [num2] = "number2"
-    [operation] = "operation"
-    [resultCalculate] = "displayResult($event)">
-    </app-child>
-
+    <app-child [num1]="a" [num2]="b" [operation]="operation" (resultCalculated)="showResult($event)"></app-child>
     <h3 *ngIf="result !== null">Eredmény: {{ result }}</h3>
 </div>
 

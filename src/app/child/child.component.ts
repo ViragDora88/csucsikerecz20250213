@@ -1,20 +1,20 @@
-import { Component, EventEmitter, Input, Output, input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   standalone: false,
   templateUrl: './child.component.html',
-  styleUrl: './child.component.css'
+  styleUrls: ['./child.component.css']
 })
-export class ChildComponent {
-@Input() num1! = number;
-@Input() num2! = number;
-@Input() operation! = string;
+export class ChildComponent implements OnChanges{
+@Input() num1!: number;
+@Input() num2!: number;
+@Input() operation!: string;
 
 
-@Output() resultCalculated = new EventEmitter<number>;
+@Output() resultCalculated = new EventEmitter<number>();
 
-ng0Changes(){
+ngOnChanges(changes: SimpleChanges){
   let result: number= 0;
 
   switch (this.operation) {
